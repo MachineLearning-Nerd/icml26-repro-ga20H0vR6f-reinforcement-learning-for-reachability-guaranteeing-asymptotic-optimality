@@ -1,0 +1,14 @@
+{
+  "claim_id": "claim2_theorem_3_2",
+  "source_anchor": "ar5iv HTML #S3.Thmtheorem2; epsilon-optimal definition #S2.SS0.SSS0.Px2.p3",
+  "exact_statement": "There exists K_opt such that for every k >= K_opt there exists N_k for which Algorithm 1 returns an optimal memoryless deterministic policy with probability at least 1-delta_k.",
+  "assumptions": [
+    "the memoryless deterministic policy set is finite",
+    "epsilon_diff is the positive gap from the optimal value to the best strictly suboptimal value",
+    "epsilon_k = 2^(-k)",
+    "Theorem 3.1 supplies the epsilon_k-optimal event with probability at least 1-delta_k"
+  ],
+  "pass_condition": "A symbolic certificate proves the strict-gap event inclusion, an exact later K_opt exists, the independent rational-spectrum checker agrees, and the equality-boundary control is rejected.",
+  "fail_condition": "A suboptimal policy is epsilon-optimal for epsilon < epsilon_diff, no strict later-stage witness exists, or an independent check disagrees.",
+  "verdict_vocabulary": ["VERIFIED", "FALSIFIED", "BLOCKED"]
+}

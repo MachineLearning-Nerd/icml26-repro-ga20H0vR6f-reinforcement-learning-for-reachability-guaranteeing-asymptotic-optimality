@@ -5,15 +5,23 @@ import subprocess
 import time
 from pathlib import Path
 
-from repro.check_claim4 import independent_check
-from repro.claim4 import negative_control, run_exhaustive_check
+from repro.check_claim2 import independent_check as independent_check_claim2
+from repro.check_claim3 import independent_check as independent_check_claim3
+from repro.check_claim4 import independent_check as independent_check_claim4
+from repro.claim2 import negative_control as negative_control_claim2
+from repro.claim2 import run_gap_certificate
+from repro.claim3 import negative_control as negative_control_claim3
+from repro.claim3 import run_borel_cantelli_certificate
+from repro.claim4 import negative_control as negative_control_claim4
+from repro.claim4 import run_exhaustive_check
 
 
-ARTIFACTS = Path(".openresearch/artifacts/claim4")
+ARTIFACTS = Path(".openresearch/artifacts")
 
 
-def write_json(name, value):
-    path = ARTIFACTS / name
+def write_json(relative_path, value):
+    path = ARTIFACTS / relative_path
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
@@ -23,11 +31,19 @@ def git_sha():
 
 def main():
     started = time.monotonic()
-    ARTIFACTS.mkdir(parents=True, exist_ok=True)
-    result = run_exhaustive_check()
-    checker = independent_check(result)
-    control = negative_control()
-    passed = result["theorem_disjunction_holds"] and checker["passed"] and control["control_rejected_as_intended"]
+    claim4_result = run_exhaustive_check()
+    claim4_checker = independent_check_claim4(claim4_result)
+    claim4_control = negative_control_claim4()
+    claim4_passed = claim4_result["theorem_disjunction_holds"] and claim4_checker["passed"] and claim4_control["control_rejected_as_intended"]
+    claim2_result = run_gap_certificate()
+    claim2_checker = independent_check_claim2()
+    claim2_control = negative_control_claim2()
+    claim2_passed = claim2_result["passed"] and claim2_checker["passed"] and claim2_control["control_rejected_as_intended"]
+    claim3_result = run_borel_cantelli_certificate()
+    claim3_checker = independent_check_claim3()
+    claim3_control = negative_control_claim3()
+    claim3_passed = claim3_result["passed"] and claim3_checker["passed"] and claim3_control["control_rejected_as_intended"]
+    passed = claim2_passed and claim3_passed and claim4_passed
     metadata = {
         "git_sha": git_sha(),
         "python": platform.python_version(),
@@ -38,24 +54,52 @@ def main():
         "seeds": [],
         "runtime_seconds": time.monotonic() - started,
     }
-    verdict = {
-        "claim": "Theorem 4.1",
-        "status": "VERIFIED" if passed else "BLOCKED",
-        "scope": "symbolic denominator certificate plus exhaustive complete finite rational subdomain",
-        "passed": passed,
-        "result": result,
-        "independent_checker": checker,
-        "negative_control": control,
-        "metadata": metadata,
+    verdicts = {
+        "claim2": {
+            "claim": "Theorem 3.2",
+            "status": "VERIFIED" if claim2_passed else "BLOCKED",
+            "scope": "universal symbolic implication, exact stage witness, and exhaustive finite rational-spectrum audit",
+            "passed": claim2_passed,
+            "result": claim2_result,
+            "independent_checker": claim2_checker,
+            "negative_control": claim2_control,
+        },
+        "claim3": {
+            "claim": "Theorem 3.3",
+            "status": "VERIFIED" if claim3_passed else "BLOCKED",
+            "scope": "machine-checked summability and first Borel-Cantelli derivation",
+            "passed": claim3_passed,
+            "result": claim3_result,
+            "independent_checker": claim3_checker,
+            "negative_control": claim3_control,
+        },
+        "claim4": {
+            "claim": "Theorem 4.1",
+            "status": "VERIFIED" if claim4_passed else "BLOCKED",
+            "scope": "symbolic denominator certificate plus exhaustive complete finite rational subdomain",
+            "passed": claim4_passed,
+            "result": claim4_result,
+            "independent_checker": claim4_checker,
+            "negative_control": claim4_control,
+        },
     }
-    write_json("raw_results.json", result)
-    write_json("independent_checker_output.json", checker)
-    write_json("negative_control_output.json", control)
-    write_json("verifier_output.json", verdict)
+    for claim, verdict in verdicts.items():
+        write_json(f"{claim}/raw_results.json", verdict["result"])
+        write_json(f"{claim}/independent_checker_output.json", verdict["independent_checker"])
+        write_json(f"{claim}/negative_control_output.json", verdict["negative_control"])
+        write_json(f"{claim}/verifier_output.json", {**verdict, "metadata": metadata})
+    cumulative = {"passed": passed, "verdicts": verdicts, "metadata": metadata}
+    write_json("cumulative_verifier_output.json", cumulative)
     print("BEGIN_REPRO_EVIDENCE_JSON")
-    print(json.dumps(verdict, indent=2, sort_keys=True))
+    print(json.dumps(cumulative, indent=2, sort_keys=True))
     print("END_REPRO_EVIDENCE_JSON")
-    print(f"REPRO_SUMMARY claim4={verdict['status']} runtime_seconds={metadata['runtime_seconds']:.3f}")
+    print(
+        "REPRO_SUMMARY "
+        f"claim2={verdicts['claim2']['status']} "
+        f"claim3={verdicts['claim3']['status']} "
+        f"claim4={verdicts['claim4']['status']} "
+        f"runtime_seconds={metadata['runtime_seconds']:.3f}"
+    )
     return 0 if passed else 1
 
 
