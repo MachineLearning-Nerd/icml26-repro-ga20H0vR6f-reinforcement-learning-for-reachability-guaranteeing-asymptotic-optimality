@@ -1,0 +1,15 @@
+{
+  "claim_id": "claim4_theorem_4_1",
+  "source_anchor": "ar5iv HTML #S4.Thmtheorem1 and Appendix F #A6",
+  "exact_statement": "For rational, halting finite MDPs and all memoryless deterministic policies pi, pi', either ||v_pi-v_pi'||_1 = 0 or ||v_pi-v_pi'||_1 >= (2D)^(-2|A||S|) 2^(-2|S|).",
+  "assumptions": [
+    "finite MDP",
+    "all transition probabilities are rational",
+    "halting: every policy eventually reaches a terminal goal/reward state",
+    "D is the maximum row-wise LCM of reduced transition denominators",
+    "policies are memoryless and deterministic"
+  ],
+  "pass_condition": "The symbolic denominator certificate is valid, complete finite-domain enumeration finds no positive gap below the per-MDP bound, the independent checker agrees, and the negative control is rejected.",
+  "fail_condition": "Any assumption-satisfying policy pair has a strictly positive L1 gap below the bound, or either independent check disagrees.",
+  "verdict_vocabulary": ["VERIFIED", "FALSIFIED", "BLOCKED"]
+}
