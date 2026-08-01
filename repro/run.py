@@ -17,6 +17,8 @@ from repro.claim3 import negative_control as negative_control_claim3
 from repro.claim3 import run_borel_cantelli_certificate
 from repro.claim4 import negative_control as negative_control_claim4
 from repro.claim4 import run_exhaustive_check
+from repro.qvbs import negative_control as negative_control_qvbs
+from repro.qvbs import run_ij3_calibration
 
 
 ARTIFACTS = Path(".openresearch/artifacts")
@@ -50,7 +52,10 @@ def main():
     claim3_checker = independent_check_claim3()
     claim3_control = negative_control_claim3()
     claim3_passed = claim3_result["passed"] and claim3_checker["passed"] and claim3_control["control_rejected_as_intended"]
-    passed = claim1_passed and claim2_passed and claim3_passed and claim4_passed
+    qvbs_result = run_ij3_calibration(Path(".openresearch/work/qvbs-calibration"))
+    qvbs_control = negative_control_qvbs()
+    qvbs_passed = qvbs_result["passed"] and qvbs_control["control_rejected_as_intended"]
+    passed = claim1_passed and claim2_passed and claim3_passed and claim4_passed and qvbs_passed
     metadata = {
         "git_sha": git_sha(),
         "python": platform.python_version(),
@@ -105,6 +110,12 @@ def main():
         write_json(f"{claim}/negative_control_output.json", verdict["negative_control"])
         write_json(f"{claim}/verifier_output.json", {**verdict, "metadata": metadata})
     cumulative = {"passed": passed, "verdicts": verdicts, "metadata": metadata}
+    cumulative["qvbs_calibration"] = {
+        "passed": qvbs_passed,
+        "result": qvbs_result,
+        "negative_control": qvbs_control,
+    }
+    write_json("claim5/calibration_results.json", cumulative["qvbs_calibration"])
     write_json("cumulative_verifier_output.json", cumulative)
     print("BEGIN_REPRO_EVIDENCE_JSON")
     print(json.dumps(cumulative, indent=2, sort_keys=True))
@@ -115,6 +126,7 @@ def main():
         f"claim2={verdicts['claim2']['status']} "
         f"claim3={verdicts['claim3']['status']} "
         f"claim4={verdicts['claim4']['status']} "
+        f"qvbs_calibration={'PASS' if qvbs_passed else 'FAIL'} "
         f"runtime_seconds={metadata['runtime_seconds']:.3f}"
     )
     return 0 if passed else 1
