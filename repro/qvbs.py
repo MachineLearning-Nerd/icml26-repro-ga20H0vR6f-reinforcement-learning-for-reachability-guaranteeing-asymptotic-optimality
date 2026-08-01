@@ -76,7 +76,7 @@ def acquire_sources(work_dir):
 
 def write_compatibility_layer(source_dir):
     (source_dir / "numpy.py").write_text(
-        """import math\nimport random as _random\n\nsqrt = math.sqrt\nlog = math.log\n\nclass _Random:\n    def seed(self, value):\n        _random.seed(value)\n\n    def choice(self, values, p=None):\n        sequence = list(range(values)) if isinstance(values, int) else list(values)\n        if p is None:\n            return _random.choice(sequence)\n        draw = _random.random()\n        cumulative = 0.0\n        for index, weight in enumerate(p):\n            cumulative += weight\n            if draw < cumulative:\n                return sequence[index]\n        return sequence[-1]\n\nrandom = _Random()\n""",
+        """import math\nimport random as _random\n\nsqrt = math.sqrt\nlog = math.log\n\nclass _Random:\n    def seed(self, value):\n        _random.seed(value)\n\n    def choice(self, values, p=None):\n        sequence = list(range(values)) if isinstance(values, int) else list(values)\n        if p is None:\n            sequence.sort(key=repr)\n            return _random.choice(sequence)\n        draw = _random.random()\n        cumulative = 0.0\n        for index, weight in enumerate(p):\n            cumulative += weight\n            if draw < cumulative:\n                return sequence[index]\n        return sequence[-1]\n\nrandom = _Random()\n""",
         encoding="utf-8",
     )
     (source_dir / "tqdm.py").write_text(
