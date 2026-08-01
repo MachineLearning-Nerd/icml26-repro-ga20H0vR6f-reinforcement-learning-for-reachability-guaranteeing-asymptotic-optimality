@@ -5,9 +5,12 @@ import subprocess
 import time
 from pathlib import Path
 
+from repro.check_claim1 import independent_check as independent_check_claim1
 from repro.check_claim2 import independent_check as independent_check_claim2
 from repro.check_claim3 import independent_check as independent_check_claim3
 from repro.check_claim4 import independent_check as independent_check_claim4
+from repro.claim1 import negative_control as negative_control_claim1
+from repro.claim1 import run_pac_existence_certificate
 from repro.claim2 import negative_control as negative_control_claim2
 from repro.claim2 import run_gap_certificate
 from repro.claim3 import negative_control as negative_control_claim3
@@ -31,6 +34,10 @@ def git_sha():
 
 def main():
     started = time.monotonic()
+    claim1_result = run_pac_existence_certificate()
+    claim1_checker = independent_check_claim1(claim1_result)
+    claim1_control = negative_control_claim1(claim1_result)
+    claim1_passed = claim1_result["passed"] and claim1_checker["passed"] and claim1_control["control_rejected_as_intended"]
     claim4_result = run_exhaustive_check()
     claim4_checker = independent_check_claim4(claim4_result)
     claim4_control = negative_control_claim4()
@@ -43,7 +50,7 @@ def main():
     claim3_checker = independent_check_claim3()
     claim3_control = negative_control_claim3()
     claim3_passed = claim3_result["passed"] and claim3_checker["passed"] and claim3_control["control_rejected_as_intended"]
-    passed = claim2_passed and claim3_passed and claim4_passed
+    passed = claim1_passed and claim2_passed and claim3_passed and claim4_passed
     metadata = {
         "git_sha": git_sha(),
         "python": platform.python_version(),
@@ -55,6 +62,15 @@ def main():
         "runtime_seconds": time.monotonic() - started,
     }
     verdicts = {
+        "claim1": {
+            "claim": "Theorem 3.1",
+            "status": "VERIFIED" if claim1_passed else "BLOCKED",
+            "scope": "independently reconstructed existence proof, exact minimum-N calibration, and adaptive-process checker",
+            "passed": claim1_passed,
+            "result": claim1_result,
+            "independent_checker": claim1_checker,
+            "negative_control": claim1_control,
+        },
         "claim2": {
             "claim": "Theorem 3.2",
             "status": "VERIFIED" if claim2_passed else "BLOCKED",
@@ -95,6 +111,7 @@ def main():
     print("END_REPRO_EVIDENCE_JSON")
     print(
         "REPRO_SUMMARY "
+        f"claim1={verdicts['claim1']['status']} "
         f"claim2={verdicts['claim2']['status']} "
         f"claim3={verdicts['claim3']['status']} "
         f"claim4={verdicts['claim4']['status']} "

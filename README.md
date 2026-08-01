@@ -1,5 +1,5 @@
 # Reproducing RL for Reachability
 
-Baseline work in progress for arXiv 2605.24740. The first contract corrects the judged Theorem 4.1 verifier by testing the theorem's exact `zero OR gap >= bound` disjunction with rational and halting assumptions visible. Formal results will be reported only after the fixed command runs on Hugging Face `cpu-upgrade`.
+Reproduction work in progress for arXiv 2605.24740. Claims 2-4 now have answering Hugging Face `cpu-upgrade` runs. The current child adds an exact Claim 1 PAC-existence contract and calibrated sample-count search; Claim 5's nine standardized QVBS benchmarks remain pending. No judge score change is claimed.
 
 Fixed command: `uv run --frozen python -m repro.run`
