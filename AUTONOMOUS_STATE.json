@@ -2,8 +2,8 @@
   "schema_version": 1,
   "paper": "arXiv:2605.24740",
   "openreview_id": "ga20H0vR6f",
-  "phase": "documentation_checkpoint_before_repository_rename",
-  "next_action": "normalize_attribution_rename_repository_and_publish_descriptive_branches",
+  "phase": "completed_scoped_audit_published",
+  "next_action": "update_collection_tracker_and_continue_with_next_repository",
   "completed_milestones": [
     "pinned_arxiv_html_source_and_hash",
     "recorded_claim_contracts_for_theorems_3_1_through_4_1",
@@ -15,7 +15,12 @@
     "prepared_nine_benchmark_ten_trial_runner",
     "documented_claim_to_evidence_paths",
     "merged_complete_reproduction_lineage_into_main",
-    "documented_historical_branch_purposes"
+    "documented_historical_branch_purposes",
+    "normalized_reachable_commit_attribution",
+    "renamed_repository_to_icml26_rl_reachability_asymptotic_optimality",
+    "published_descriptive_audit_and_release_branches",
+    "deleted_obsolete_orx_branch_names",
+    "verified_remote_repository_state"
   ],
   "claim_statuses": {
     "claim_1": "verified_under_finite_mdp_positive_exploration_conservative_pac_bvi_contract",
@@ -35,6 +40,6 @@
   "source_retrieved": "2026-08-02",
   "compute_policy": "claims_1_to_4_are_exact_or_finite_checks; claim_5_requires_explicit_qvbs_run_before_verdict",
   "publication_allowed": true,
-  "last_known_git_commit": "e327da0a971b273266569937dab65ca0239847a2",
+  "last_known_git_commit": "1671b1cb62ec0d8ec192fd0c946ffec22267c69f",
   "last_checkpoint": "2026-08-13"
 }

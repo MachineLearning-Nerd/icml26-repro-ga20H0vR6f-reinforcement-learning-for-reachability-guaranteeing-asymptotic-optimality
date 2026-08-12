@@ -44,9 +44,16 @@ Before publication:
 - [x] STATUS.md records scientific and publication checkpoints.
 - [x] AUTONOMOUS_STATE.json records the next action and pinned sources.
 - [x] Target repository name is available.
-- [ ] Rewrite reachable commit identities.
-- [ ] Rename the GitHub repository.
-- [ ] Push descriptive branches and remove old ORX names.
-- [ ] Verify remote main, branch inventory, README blob, JSON parsing, and commit identities.
+- [x] Rewrite reachable commit identities.
+- [x] Rename the GitHub repository.
+- [x] Push descriptive branches and remove old ORX names.
+- [x] Verify remote main, branch inventory, README blob, JSON parsing, and commit identities.
 
-The final published state will be appended below after remote verification.
+## Published state
+
+- Repository: MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality
+- Default branch: main
+- Main before this final checkpoint commit: 1671b1cb62ec0d8ec192fd0c946ffec22267c69f
+- Published branches: main plus audit/theorem-4-1-value-gap, audit/theorems-3-2-3-3-exact-certificates, audit/theorem-3-1-pac-existence, audit/qvbs-ingestion-calibration, release/qvbs-nine-benchmark
+- Deleted branch prefix: orx/
+- Reachable commit identity: MachineLearning-Nerd <37579156+MachineLearning-Nerd@users.noreply.github.com>

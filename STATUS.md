@@ -37,3 +37,6 @@
 - Per-claim contracts, source audits, methods, limitations, and evaluator pages are committed.
 - Historical ORX branches are preserved under descriptive audit/release names after cleanup.
 - Claim 5 is not labeled verified without generated 90-trial raw evidence.
+- Reachable commit attribution is normalized to MachineLearning-Nerd.
+- The GitHub repository is renamed to icml26-rl-reachability-asymptotic-optimality.
+- The old ORX branch names are deleted; five descriptive audit/release branches remain beside main.
