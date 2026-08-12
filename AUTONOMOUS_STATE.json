@@ -40,6 +40,6 @@
   "source_retrieved": "2026-08-02",
   "compute_policy": "claims_1_to_4_are_exact_or_finite_checks; claim_5_requires_explicit_qvbs_run_before_verdict",
   "publication_allowed": true,
-  "last_known_git_commit": "1671b1cb62ec0d8ec192fd0c946ffec22267c69f",
+  "last_known_git_commit": "4eb71f69061a48341f1a0bd44fb82aca8a0af704",
   "last_checkpoint": "2026-08-13"
 }
