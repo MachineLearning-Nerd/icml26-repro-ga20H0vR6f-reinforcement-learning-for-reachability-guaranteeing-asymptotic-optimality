@@ -1,0 +1,8 @@
+{
+  "claim": "Across nine named QVBS benchmarks and ten trials per benchmark, the empirical policy-reachability curve converges at median stage 2 and mean stage 2.3, earlier than the Dining Philosophers value bounds near stage 16.",
+  "source_anchor": "Section 5.1 and Appendix H Table 1",
+  "paper_benchmark_stages": [2, 2, 2, 1, 2, 7, 2, 2, 1],
+  "required_trials": 90,
+  "acceptance": "Complete pinned 9x10 protocol; independently reconstructed aggregation; exact fixed-policy reachability intervals reported alongside the paper's Monte Carlo metric; missing-trial control rejected.",
+  "verdicts": ["VERIFIED", "FALSIFIED", "BLOCKED"]
+}

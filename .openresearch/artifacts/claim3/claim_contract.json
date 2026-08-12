@@ -1,0 +1,13 @@
+{
+  "claim_id": "claim3_theorem_3_3",
+  "source_anchor": "ar5iv HTML #S3.Thmtheorem3",
+  "exact_statement": "If the post-K_opt failure events satisfy Pr(E_k) <= delta_k = 2^(-k), then with probability one only finitely many stages return a non-optimal policy.",
+  "assumptions": [
+    "E_k denotes a non-optimal policy at stage k",
+    "Theorem 3.2 supplies Pr(E_k) <= 2^(-k) after K_opt",
+    "no independence assumption"
+  ],
+  "pass_condition": "Exact summability, union-bound, limiting-tail, and first Borel-Cantelli obligations hold; an independent exact checker agrees; the harmonic control is rejected.",
+  "fail_condition": "The geometric failure schedule is not summable, the limiting union bound does not vanish, independence is required, or an independent check disagrees.",
+  "verdict_vocabulary": ["VERIFIED", "FALSIFIED", "BLOCKED"]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "paper": "arXiv:2605.24740",
+  "openreview_id": "ga20H0vR6f",
+  "phase": "documentation_checkpoint_before_repository_rename",
+  "next_action": "normalize_attribution_rename_repository_and_publish_descriptive_branches",
+  "completed_milestones": [
+    "pinned_arxiv_html_source_and_hash",
+    "recorded_claim_contracts_for_theorems_3_1_through_4_1",
+    "reconstructed_pac_existence_certificate",
+    "reconstructed_strict_policy_gap_certificate",
+    "reconstructed_borel_cantelli_certificate",
+    "reconstructed_rational_value_gap_certificate",
+    "pinned_author_implementation_and_official_qvbs_inputs",
+    "prepared_nine_benchmark_ten_trial_runner",
+    "documented_claim_to_evidence_paths",
+    "merged_complete_reproduction_lineage_into_main",
+    "documented_historical_branch_purposes"
+  ],
+  "claim_statuses": {
+    "claim_1": "verified_under_finite_mdp_positive_exploration_conservative_pac_bvi_contract",
+    "claim_2": "verified_with_strict_later_stage_witness_and_equality_boundary_control",
+    "claim_3": "verified_conditionally_on_claim_2_using_first_borel_cantelli",
+    "claim_4": "verified_under_rational_halting_memoryless_deterministic_contract",
+    "claim_5": "pending_complete_90_trial_qvbs_evidence"
+  },
+  "former_github_repository": "https://github.com/MachineLearning-Nerd/icml26-repro-ga20H0vR6f-reinforcement-learning-for-reachability-guaranteeing-asymptotic-optimality",
+  "target_github_repository": "https://github.com/MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality",
+  "canonical_branch": "main",
+  "historical_branch_count": 5,
+  "official_code_status": "author_implementation_pinned_for_claim_5",
+  "author_implementation_commit": "6ffec1273326aede50c8b6516cea1ceb8d920faa",
+  "qvbs_repository_commit": "c7324a311475ba1a3f40e36a324e32f91e766540",
+  "paper_html_sha256": "59583e49aea8bf3b4d5104485d22fc62448c7d89ebdef2e4081bf9d4638bb5e2",
+  "source_retrieved": "2026-08-02",
+  "compute_policy": "claims_1_to_4_are_exact_or_finite_checks; claim_5_requires_explicit_qvbs_run_before_verdict",
+  "publication_allowed": true,
+  "last_known_git_commit": "e327da0a971b273266569937dab65ca0239847a2",
+  "last_checkpoint": "2026-08-13"
+}

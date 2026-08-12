@@ -1,0 +1,15 @@
+{
+  "claim_id": "claim1_theorem_3_1",
+  "source_anchor": "ar5iv HTML #S3.Thmtheorem1 and Appendix E #A5",
+  "exact_statement": "There exists K_PAC in N such that for every k >= K_PAC there exists a finite N_k with Pr[pi_k in Pi_opt^(epsilon_k)] >= 1-delta_k.",
+  "assumptions": [
+    "finite MDP and finite action set",
+    "positive minimum nonzero transition probability p_min",
+    "positive exploration probability mu",
+    "p_k=epsilon_k=delta_k=2^(-k)",
+    "the conservative two-sided PAC-BVI transition bounds and EC-collapse guarantee apply"
+  ],
+  "pass_condition": "The reconstructed quantifier proof closes, exact binary search finds and brackets finite minimum N values without using a theorem formula, the independent adaptive checker agrees, and N-1 and zero-exploration controls are rejected.",
+  "fail_condition": "A quantified witness need not exist under the assumptions, an independent tail check disagrees, or a negative control passes.",
+  "verdict_vocabulary": ["VERIFIED", "FALSIFIED", "BLOCKED"]
+}
