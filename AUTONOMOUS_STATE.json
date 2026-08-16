@@ -2,8 +2,8 @@
   "schema_version": 2,
   "paper": "arXiv:2605.24740",
   "openreview_id": "ga20H0vR6f",
-  "phase": "dossier_ready_for_publication",
-  "next_action": "publish_dossier_then_verify_fresh_clone_and_update_collection_tracker",
+  "phase": "dossier_published",
+  "next_action": "update_collection_tracker_and_continue_with_next_repository",
   "completed_milestones": [
     "pinned_arxiv_html_source_and_hash",
     "recorded_claim_contracts_for_theorems_3_1_through_4_1",
@@ -21,7 +21,9 @@
     "published_descriptive_audit_and_release_branches",
     "deleted_obsolete_orx_branch_names",
     "corrected_stale_claim_page_verdicts",
-    "added_standardized_audit_dossier"
+    "added_standardized_audit_dossier",
+    "verified_remote_repository_state",
+    "verified_fresh_clone_after_dossier_publication"
   ],
   "claim_statuses": {
     "claim_1": "VERIFIED",
@@ -33,6 +35,7 @@
   "former_github_repository": "https://github.com/MachineLearning-Nerd/icml26-repro-ga20H0vR6f-reinforcement-learning-for-reachability-guaranteeing-asymptotic-optimality",
   "target_github_repository": "https://github.com/MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality",
   "canonical_branch": "main",
+  "pre_dossier_main_commit": "a94954c4e14bf922e429498583f37cbad214154e",
   "expected_branches": [
     "main",
     "audit/qvbs-ingestion-calibration",
@@ -54,7 +57,8 @@
     "name": "MachineLearning-Nerd",
     "email": "37579156+MachineLearning-Nerd@users.noreply.github.com"
   },
+  "published_dossier_commit": "34fe662cee369635c6748cbb4b74de6befb55d4e",
   "publication_allowed": true,
-  "last_known_git_commit": "a94954c4e14bf922e429498583f37cbad214154e",
+  "last_known_git_commit": "34fe662cee369635c6748cbb4b74de6befb55d4e",
   "last_checkpoint": "2026-08-17"
 }
