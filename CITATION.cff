@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this audit or its recorded outputs, please cite the original paper and this repository."
+title: "ICML 2026 Reinforcement Learning for Reachability Claim Audit"
+version: "1.0.0"
+date-released: 2026-08-17
+authors:
+  - name: MachineLearning-Nerd
+repository-code: "https://github.com/MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality"
+url: "https://github.com/MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality"
+references:
+  - type: article
+    title: "Reinforcement Learning for Reachability: Guaranteeing Asymptotic Optimality"
+    authors:
+      - given-names: Amogh
+        family-names: Palasamudram
+      - given-names: Jakub
+        family-names: Svoboda
+      - given-names: Suguman
+        family-names: Bansal
+      - given-names: Krishnendu
+        family-names: Chatterjee
+    year: 2026
+    url: "https://arxiv.org/abs/2605.24740"
+    identifiers:
+      - type: arxiv
+        value: "2605.24740"

@@ -6,4 +6,4 @@ The source defines epsilon-optimality with `>=`. Therefore `epsilon = epsilon_di
 
 Run `uv run --frozen python -m repro.run`. Executable sources: `repro/claim2.py` and independent checker `repro/check_claim2.py`.
 
-Verdict: **Pending HF cpu-upgrade run**.
+Verdict: **VERIFIED** for the strict later-stage witness. The equality boundary remains a documented proof defect and rejected negative control; this claim is conditional on the PAC premise from Claim 1.

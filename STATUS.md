@@ -35,8 +35,17 @@
 
 - Main contains the complete verifier lineage through the Claim 5 runner.
 - Per-claim contracts, source audits, methods, limitations, and evaluator pages are committed.
+- The standardized dossier is committed in CLAIM_EVIDENCE.md, SOURCE_AUDIT.md,
+  BRANCH_AUDIT.md, ENVIRONMENT.md, REPORT.md, CITATION.cff,
+  AUTHOR_THANK_YOU.md, claims.json, and EVIDENCE_MANIFEST.json.
 - Historical ORX branches are preserved under descriptive audit/release names after cleanup.
 - Claim 5 is not labeled verified without generated 90-trial raw evidence.
 - Reachable commit attribution is normalized to MachineLearning-Nerd.
 - The GitHub repository is renamed to icml26-rl-reachability-asymptotic-optimality.
 - The old ORX branch names are deleted; five descriptive audit/release branches remain beside main.
+- The dossier checkpoint directly verified Claims 1–4 with exact or finite
+  checks; it did not claim a full QVBS run, judge-score change, or author
+  endorsement.
+- verify_final.py checks the final remote branch inventory, canonical
+  attribution, source hash, claim ledger, evidence boundary, and fresh-clone
+  topology.

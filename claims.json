@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "repository": "MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality",
+  "previous_repository": "MachineLearning-Nerd/icml26-repro-ga20H0vR6f-reinforcement-learning-for-reachability-guaranteeing-asymptotic-optimality",
+  "overall_status": "VERIFIED_CLAIMS_1_TO_4_PENDING_CLAIM_5",
+  "paper": {
+    "title": "Reinforcement Learning for Reachability: Guaranteeing Asymptotic Optimality",
+    "arxiv": "2605.24740",
+    "openreview": "ga20H0vR6f",
+    "authors": [
+      "Amogh Palasamudram",
+      "Jakub Svoboda",
+      "Suguman Bansal",
+      "Krishnendu Chatterjee"
+    ],
+    "venue_record": "ICML 2026",
+    "source_html": "https://ar5iv.labs.arxiv.org/html/2605.24740",
+    "source_html_sha256": "59583e49aea8bf3b4d5104485d22fc62448c7d89ebdef2e4081bf9d4638bb5e2",
+    "official_code": "https://github.com/amoghp214/asymptotic-ltl-reachability",
+    "official_code_commit": "6ffec1273326aede50c8b6516cea1ceb8d920faa",
+    "qvbs_repository": "https://github.com/ahartmanns/qcomp",
+    "qvbs_commit": "c7324a311475ba1a3f40e36a324e32f91e766540"
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "paper_anchor": "Theorem 3.1",
+      "status": "VERIFIED",
+      "scope": "finite MDP, positive exploration, conservative PAC-BVI contract",
+      "producer": "repro/claim1.py::run_pac_existence_certificate",
+      "independent_checker": "repro/check_claim1.py::independent_check",
+      "evidence": [
+        ".openresearch/artifacts/claim1/",
+        "CLAIM_EVIDENCE.md"
+      ],
+      "limitation": "Existential witness and finite calibration, not a practical sample-complexity recommendation."
+    },
+    {
+      "id": "C2",
+      "paper_anchor": "Theorem 3.2",
+      "status": "VERIFIED",
+      "scope": "strict later-stage witness below the finite policy gap",
+      "producer": "repro/claim2.py::run_gap_certificate",
+      "independent_checker": "repro/check_claim2.py::independent_check",
+      "evidence": [
+        ".openresearch/artifacts/claim2/",
+        "CLAIM_EVIDENCE.md"
+      ],
+      "limitation": "Conditional on C1; the inclusive equality boundary is a documented proof defect."
+    },
+    {
+      "id": "C3",
+      "paper_anchor": "Theorem 3.3",
+      "status": "VERIFIED",
+      "scope": "summable stage failures and first Borel-Cantelli inference",
+      "producer": "repro/claim3.py::run_borel_cantelli_certificate",
+      "independent_checker": "repro/check_claim3.py::independent_check",
+      "evidence": [
+        ".openresearch/artifacts/claim3/",
+        "CLAIM_EVIDENCE.md"
+      ],
+      "limitation": "Conditional on C2; not a finite simulation of an almost-sure event."
+    },
+    {
+      "id": "C4",
+      "paper_anchor": "Theorem 4.1",
+      "status": "VERIFIED",
+      "scope": "rational, halting finite MDPs with memoryless deterministic policies",
+      "producer": "repro/claim4.py::run_exhaustive_check",
+      "independent_checker": "repro/check_claim4.py::independent_check",
+      "evidence": [
+        ".openresearch/artifacts/claim4/",
+        "CLAIM_EVIDENCE.md"
+      ],
+      "limitation": "The finite enumeration is a complete stated subdomain calibration, not the universal proof itself."
+    },
+    {
+      "id": "C5",
+      "paper_anchor": "Section 5.1 and Appendix H Table 1",
+      "status": "PENDING",
+      "scope": "nine QVBS benchmarks, ten trials each, paper aggregation and independent value intervals",
+      "producer": "repro/qvbs_full.py::_run_trial and repro/run.py",
+      "independent_checker": "repro/qvbs_full.py::independent_check",
+      "evidence": [
+        ".openresearch/artifacts/claim5/",
+        "candidate/pages/claim-5.md",
+        "CLAIM_EVIDENCE.md"
+      ],
+      "limitation": "No complete 90-trial result is represented as published evidence."
+    }
+  ],
+  "attribution": {
+    "name": "MachineLearning-Nerd",
+    "email": "37579156+MachineLearning-Nerd@users.noreply.github.com",
+    "author_and_committer_required": true,
+    "co_author_trailers_allowed": false
+  }
+}

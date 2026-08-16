@@ -16,6 +16,20 @@ The canonical main branch contains the complete verifier lineage through the nin
 
 No judge score change is claimed by this repository.
 
+## Audit dossier
+
+The standardized audit record is split into small, reviewable files:
+
+- [CLAIM_EVIDENCE.md](CLAIM_EVIDENCE.md) maps each paper claim to its producer, checks, controls, and evidence boundary.
+- [SOURCE_AUDIT.md](SOURCE_AUDIT.md) records the pinned paper source, theorem anchors, author implementation, and QVBS inputs.
+- [BRANCH_AUDIT.md](BRANCH_AUDIT.md) records the published branch names, former workspace labels, tips, and attribution policy.
+- [ENVIRONMENT.md](ENVIRONMENT.md) records the fixed command, lockfile, targeted verification checkpoint, and Claim 5 run boundary.
+- [REPORT.md](REPORT.md) states the scoped scientific decision and limitations.
+- [CITATION.cff](CITATION.cff) and [AUTHOR_THANK_YOU.md](AUTHOR_THANK_YOU.md) provide citation and author acknowledgement.
+- [verify_final.py](verify_final.py) performs fail-closed structural checks on a local or fresh clone.
+
+The dossier is deliberately more conservative than a benchmark-only README: a passing theorem certificate does not imply that the complete QVBS experiment was reproduced.
+
 ## Paper and provenance
 
 | Field | Record |
@@ -132,6 +146,8 @@ How the prepared reproduction will produce the claim:
 Verdict: PENDING. The source, configuration, checker, and limitations are prepared, but this repository does not claim a completed 90-trial result until the run is actually executed and its raw evidence is committed.
 
 Evidence files: [.openresearch/artifacts/claim5](.openresearch/artifacts/claim5), [candidate/pages/claim-5.md](candidate/pages/claim-5.md), [audits/logbook_gap_analysis.md](audits/logbook_gap_analysis.md).
+
+The current numerical checkpoint for Claims 1–4 came from a targeted, no-bytecode exact check of the four proof producers and independent checkers. It did not invoke the full QVBS runner, and generated raw JSON from the fixed cumulative command is not represented as committed evidence in this dossier.
 
 ## Branch map
 

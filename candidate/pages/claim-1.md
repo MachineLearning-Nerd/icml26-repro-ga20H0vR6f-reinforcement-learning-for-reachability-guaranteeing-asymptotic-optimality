@@ -8,4 +8,4 @@ The author implementation's own comment says its practical `N_k` is heuristic an
 
 Run `uv run --frozen python -m repro.run`. Executable sources: `repro/claim1.py` and `repro/check_claim1.py`.
 
-Verdict: **Pending HF cpu-upgrade run**.
+Verdict: **VERIFIED** for the stated finite-MDP, positive-exploration, conservative PAC-BVI contract. The targeted exact check passed the independent adaptive checker and both negative controls; the complete QVBS command is not required for this theorem certificate.

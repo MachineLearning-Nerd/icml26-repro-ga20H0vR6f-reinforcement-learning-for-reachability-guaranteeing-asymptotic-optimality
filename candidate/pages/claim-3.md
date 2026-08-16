@@ -6,4 +6,4 @@ The proof certificate reconstructs the first Borel-Cantelli argument from the ex
 
 Run `uv run --frozen python -m repro.run`. Executable sources: `repro/claim3.py` and independent checker `repro/check_claim3.py`.
 
-Verdict: **Pending HF cpu-upgrade run**.
+Verdict: **VERIFIED** conditionally on Claim 2. The exact geometric tail, union-bound limit, and first Borel–Cantelli inference pass independent checks; independence is not assumed.

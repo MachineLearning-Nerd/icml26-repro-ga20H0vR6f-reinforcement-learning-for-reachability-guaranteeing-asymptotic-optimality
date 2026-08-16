@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "paper": "arXiv:2605.24740",
   "openreview_id": "ga20H0vR6f",
-  "phase": "completed_scoped_audit_published",
-  "next_action": "update_collection_tracker_and_continue_with_next_repository",
+  "phase": "dossier_ready_for_publication",
+  "next_action": "publish_dossier_then_verify_fresh_clone_and_update_collection_tracker",
   "completed_milestones": [
     "pinned_arxiv_html_source_and_hash",
     "recorded_claim_contracts_for_theorems_3_1_through_4_1",
@@ -20,26 +20,41 @@
     "renamed_repository_to_icml26_rl_reachability_asymptotic_optimality",
     "published_descriptive_audit_and_release_branches",
     "deleted_obsolete_orx_branch_names",
-    "verified_remote_repository_state"
+    "corrected_stale_claim_page_verdicts",
+    "added_standardized_audit_dossier"
   ],
   "claim_statuses": {
-    "claim_1": "verified_under_finite_mdp_positive_exploration_conservative_pac_bvi_contract",
-    "claim_2": "verified_with_strict_later_stage_witness_and_equality_boundary_control",
-    "claim_3": "verified_conditionally_on_claim_2_using_first_borel_cantelli",
-    "claim_4": "verified_under_rational_halting_memoryless_deterministic_contract",
-    "claim_5": "pending_complete_90_trial_qvbs_evidence"
+    "claim_1": "VERIFIED",
+    "claim_2": "VERIFIED",
+    "claim_3": "VERIFIED",
+    "claim_4": "VERIFIED",
+    "claim_5": "PENDING"
   },
   "former_github_repository": "https://github.com/MachineLearning-Nerd/icml26-repro-ga20H0vR6f-reinforcement-learning-for-reachability-guaranteeing-asymptotic-optimality",
   "target_github_repository": "https://github.com/MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality",
   "canonical_branch": "main",
+  "expected_branches": [
+    "main",
+    "audit/qvbs-ingestion-calibration",
+    "audit/theorem-3-1-pac-existence",
+    "audit/theorem-4-1-value-gap",
+    "audit/theorems-3-2-3-3-exact-certificates",
+    "release/qvbs-nine-benchmark"
+  ],
   "historical_branch_count": 5,
   "official_code_status": "author_implementation_pinned_for_claim_5",
   "author_implementation_commit": "6ffec1273326aede50c8b6516cea1ceb8d920faa",
+  "author_archive_sha256": "3e82e6daeccc5b9d182c9701023b8171a78f57988112052be7e8e37f6ae5688f",
   "qvbs_repository_commit": "c7324a311475ba1a3f40e36a324e32f91e766540",
   "paper_html_sha256": "59583e49aea8bf3b4d5104485d22fc62448c7d89ebdef2e4081bf9d4638bb5e2",
   "source_retrieved": "2026-08-02",
-  "compute_policy": "claims_1_to_4_are_exact_or_finite_checks; claim_5_requires_explicit_qvbs_run_before_verdict",
+  "compute_policy": "claims_1_to_4_are_exact_or_finite_checks; claim_5_requires_explicit_90_trial_qvbs_run_before_verdict",
+  "evidence_boundary": "targeted_claims_1_to_4_checkpoint; no_committed_generated_raw_json; claim_5_pending",
+  "canonical_identity": {
+    "name": "MachineLearning-Nerd",
+    "email": "37579156+MachineLearning-Nerd@users.noreply.github.com"
+  },
   "publication_allowed": true,
-  "last_known_git_commit": "4eb71f69061a48341f1a0bd44fb82aca8a0af704",
-  "last_checkpoint": "2026-08-13"
+  "last_known_git_commit": "a94954c4e14bf922e429498583f37cbad214154e",
+  "last_checkpoint": "2026-08-17"
 }
