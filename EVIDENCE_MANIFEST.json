@@ -2,6 +2,11 @@
   "schema_version": 1,
   "repository": "MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality",
   "paper": "arXiv:2605.24740",
+  "overall_verdict": "VERIFIED_CLAIMS_1_TO_4_PENDING_CLAIM_5",
+  "publication_allowed": true,
+  "publication_boundary": "SCOPED_AUDIT_ONLY",
+  "score_claim": false,
+  "official_author_endorsement": false,
   "claim_statuses": {
     "C1": "VERIFIED",
     "C2": "VERIFIED",
@@ -10,16 +15,19 @@
     "C5": "PENDING"
   },
   "content_addressed_artifacts": [
-    {"path": "README.md", "sha256": "5164a28a6e6771f1e683d3aecb7f799439aa24b5b35abaaccc21f1d405e5f0c5"},
-    {"path": "STATUS.md", "sha256": "29da80b8f380dd7699b03198ef5fcc6eec77a3d0d6bc1c79029d50392d8f65c6"},
+    {"path": "README.md", "sha256": "d1b430b55122a8bd6a8d46336e14c783e02f682ac2b540d9345532ded303bda6"},
+    {"path": "STATUS.md", "sha256": "c13c19fdb948423391b745fc26fb27ffd0c7f70924b989e3d8930ef19064e3d6"},
     {"path": "CLAIM_EVIDENCE.md", "sha256": "4af4998cb6275023f47c13c47e4bd0d1778a6c40e2cabdcd9ff74fd3d22f6593"},
     {"path": "SOURCE_AUDIT.md", "sha256": "2b81dbdc698a02d7324dad4ac3bb27df9a8d7a5506e7c514e94b0418aeeafa12"},
     {"path": "BRANCH_AUDIT.md", "sha256": "3cd07a2d5717581bca0f843a6bdf5228711e440e2b00b42255f0775580b78108"},
     {"path": "ENVIRONMENT.md", "sha256": "e4c62b2badaf62af9e1b32950d64103a5dc70f78c9c99ffb26af8ea5883ee8dc"},
-    {"path": "REPORT.md", "sha256": "83ce8dd09e2c7c07400faed6359280e333aeb3f02a321eb4b8f2007e56aed2a7"},
+    {"path": "REPORT.md", "sha256": "94d871d193f27349cfb47a9302adc3cdec31d9e276b89c97b7cfb972fdd59afc"},
     {"path": "AUTHOR_THANK_YOU.md", "sha256": "0b6511c46b487a9de0d11ab6ea2dd81901fdf26070301a248e7abdd09bc72d84"},
     {"path": "CITATION.cff", "sha256": "665c8c42ef4d8f26096a534ee12578071a92d5074fdb83ccac16c6e707c264a7"},
-    {"path": "claims.json", "sha256": "6a491536029a639ca0d235654be1c1dee79bf5efd5b2574d63cbc64a736928e0"},
+    {"path": "claims.json", "sha256": "98672bfbdaeda3e135f0fd96df35f633c5d9b49b32d0d529b0d0e8bc3360758c"},
+    {"path": "reproduction_verdicts.json", "sha256": "f238cdf91243ae5463a995400ec56f75b0f1e0f74b2674d35d967d965be4f667"},
+    {"path": "AUTONOMOUS_STATE.json", "sha256": "9d95dcdbfa3a5510f3609d11ac96642434c251290f5eab4fa52c0affbf092769"},
+    {"path": "verify_final.py", "sha256": "1b85128c15f77c34c98ab696d26190d0de6cdefa10e82c22056f08ca9bd9bb08"},
     {"path": "pyproject.toml", "sha256": "8b0127f625c75dd6f74366bd1e041981ac40b157bfcb0c0c0f50856328549002"},
     {"path": "uv.lock", "sha256": "5f9027d68db7ed4db07a1226b953f6eeb82fe11b204277e2359a9ea89c04aee6"},
     {"path": "audits/paper_source.md", "sha256": "f4b67e0c441fb96f5ae948e1b20a63a49f2525717c677d8874d0172d1a7fbe72"},
@@ -53,6 +61,8 @@
     "AUTHOR_THANK_YOU.md",
     "CITATION.cff",
     "claims.json",
+    "reproduction_verdicts.json",
+    "AUTONOMOUS_STATE.json",
     "EVIDENCE_MANIFEST.json",
     "verify_final.py"
   ],
@@ -125,7 +135,7 @@
   },
   "attribution": {
     "name": "MachineLearning-Nerd",
-    "email": "37579156+MachineLearning-Nerd@users.noreply.github.com",
+    "email": "MachineLearning-Nerd@users.noreply.github.com",
     "author_and_committer_required": true,
     "co_author_trailers_allowed": false
   }

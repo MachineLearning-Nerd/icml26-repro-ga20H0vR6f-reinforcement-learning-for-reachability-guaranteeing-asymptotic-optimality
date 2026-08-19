@@ -3,6 +3,11 @@
   "repository": "MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality",
   "previous_repository": "MachineLearning-Nerd/icml26-repro-ga20H0vR6f-reinforcement-learning-for-reachability-guaranteeing-asymptotic-optimality",
   "overall_status": "VERIFIED_CLAIMS_1_TO_4_PENDING_CLAIM_5",
+  "overall_verdict": "VERIFIED_CLAIMS_1_TO_4_PENDING_CLAIM_5",
+  "publication_allowed": true,
+  "publication_boundary": "SCOPED_AUDIT_ONLY",
+  "score_claim": false,
+  "official_author_endorsement": false,
   "paper": {
     "title": "Reinforcement Learning for Reachability: Guaranteeing Asymptotic Optimality",
     "arxiv": "2605.24740",
@@ -91,7 +96,7 @@
   ],
   "attribution": {
     "name": "MachineLearning-Nerd",
-    "email": "37579156+MachineLearning-Nerd@users.noreply.github.com",
+    "email": "MachineLearning-Nerd@users.noreply.github.com",
     "author_and_committer_required": true,
     "co_author_trailers_allowed": false
   }

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "repository": "MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality",
+  "paper": {
+    "title": "Reinforcement Learning for Reachability: Guaranteeing Asymptotic Optimality",
+    "authors": [
+      "Amogh Palasamudram",
+      "Jakub Svoboda",
+      "Suguman Bansal",
+      "Krishnendu Chatterjee"
+    ],
+    "arxiv": "2605.24740",
+    "openreview_id": "ga20H0vR6f"
+  },
+  "overall_verdict": "VERIFIED_CLAIMS_1_TO_4_PENDING_CLAIM_5",
+  "publication_allowed": true,
+  "publication_boundary": "SCOPED_AUDIT_ONLY",
+  "score_claim": false,
+  "official_author_endorsement": false,
+  "claims": [
+    {
+      "id": "C1",
+      "status": "VERIFIED",
+      "status_detail": "VERIFIED_FINITE_MDP_PAC_EXISTENCE_CONTRACT",
+      "claim_boundary": "The existential PAC witness and six finite calibration regimes pass with independent tail checks; this is not a practical sample-complexity recommendation.",
+      "producer": [
+        "repro/claim1.py::run_pac_existence_certificate",
+        "repro/check_claim1.py::independent_check"
+      ],
+      "evidence": [
+        ".openresearch/artifacts/claim1/",
+        "candidate/pages/claim-1.md"
+      ]
+    },
+    {
+      "id": "C2",
+      "status": "VERIFIED",
+      "status_detail": "VERIFIED_STRICT_GAP_POLICY_OPTIMALITY",
+      "claim_boundary": "The strict later-stage witness yields exact optimality under the finite policy gap; the inclusive equality boundary is retained as a rejected control.",
+      "producer": [
+        "repro/claim2.py::run_gap_certificate",
+        "repro/check_claim2.py::independent_check"
+      ],
+      "evidence": [
+        ".openresearch/artifacts/claim2/",
+        "candidate/pages/claim-2.md"
+      ]
+    },
+    {
+      "id": "C3",
+      "status": "VERIFIED",
+      "status_detail": "VERIFIED_BOREL_CANTELLI_CONVERGENCE_INFERENCE",
+      "claim_boundary": "The summable stage-failure and first Borel–Cantelli inference passes conditionally on the preceding stage-wise guarantee; it is not a finite simulation of a probability-one event.",
+      "producer": [
+        "repro/claim3.py::run_borel_cantelli_certificate",
+        "repro/check_claim3.py::independent_check"
+      ],
+      "evidence": [
+        ".openresearch/artifacts/claim3/",
+        "candidate/pages/claim-3.md"
+      ]
+    },
+    {
+      "id": "C4",
+      "status": "VERIFIED",
+      "status_detail": "VERIFIED_RATIONAL_HALTING_FINITE_MDP_CONTRACT",
+      "claim_boundary": "The rational value-gap certificate and complete four-state denominator-2 calibration pass; this finite enumeration does not replace the universal denominator proof.",
+      "producer": [
+        "repro/claim4.py::run_exhaustive_check",
+        "repro/check_claim4.py::independent_check"
+      ],
+      "evidence": [
+        ".openresearch/artifacts/claim4/",
+        "candidate/pages/claim-4.md"
+      ]
+    },
+    {
+      "id": "C5",
+      "status": "PENDING",
+      "status_detail": "PENDING_COMPLETE_QVBS_90_TRIAL_RUN",
+      "claim_boundary": "The nine-benchmark, ten-trial QVBS result is not claimed because complete raw evidence, aggregation, independent value intervals, and the missing-trial control are not committed.",
+      "planned_producer": "repro/qvbs_full.py::_run_trial and repro/run.py",
+      "evidence": [
+        ".openresearch/artifacts/claim5/",
+        "candidate/pages/claim-5.md",
+        "audits/logbook_gap_analysis.md"
+      ]
+    }
+  ]
+}

@@ -16,6 +16,11 @@ The canonical main branch contains the complete verifier lineage through the nin
 
 No judge score change is claimed by this repository.
 
+Publication boundary: `publication_allowed=true` applies only to this scoped
+audit dossier. `score_claim=false` and `official_author_endorsement=false`.
+Claim 5 remains pending until the complete 9 × 10 QVBS protocol produces
+committed raw evidence.
+
 ## Audit dossier
 
 The standardized audit record is split into small, reviewable files:
@@ -26,6 +31,8 @@ The standardized audit record is split into small, reviewable files:
 - [ENVIRONMENT.md](ENVIRONMENT.md) records the fixed command, lockfile, targeted verification checkpoint, and Claim 5 run boundary.
 - [REPORT.md](REPORT.md) states the scoped scientific decision and limitations.
 - [CITATION.cff](CITATION.cff) and [AUTHOR_THANK_YOU.md](AUTHOR_THANK_YOU.md) provide citation and author acknowledgement.
+- [reproduction_verdicts.json](reproduction_verdicts.json) records the machine-readable claim verdicts and publication boundary.
+- [AUTONOMOUS_STATE.json](AUTONOMOUS_STATE.json) records the resumable repository state, branch topology, and attribution checkpoint.
 - [verify_final.py](verify_final.py) performs fail-closed structural checks on a local or fresh clone.
 
 The dossier is deliberately more conservative than a benchmark-only README: a passing theorem certificate does not imply that the complete QVBS experiment was reproduced.

@@ -8,6 +8,10 @@ Claims 1–4 are supported at the scoped contracts recorded in
 CLAIM_EVIDENCE.md. Claim 5 is pending because the prepared QVBS runner has not
 produced a complete 9 x 10 result with committed raw evidence.
 
+The machine-readable publication boundary is
+`publication_allowed=true` for this scoped audit only;
+`score_claim=false` and `official_author_endorsement=false`.
+
 ## Evidence decision
 
 - C1: the existential PAC witness proof, exact six-regime calibration, and

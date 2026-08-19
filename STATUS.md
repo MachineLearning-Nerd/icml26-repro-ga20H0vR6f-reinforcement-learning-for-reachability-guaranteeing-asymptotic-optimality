@@ -37,7 +37,8 @@
 - Per-claim contracts, source audits, methods, limitations, and evaluator pages are committed.
 - The standardized dossier is committed in CLAIM_EVIDENCE.md, SOURCE_AUDIT.md,
   BRANCH_AUDIT.md, ENVIRONMENT.md, REPORT.md, CITATION.cff,
-  AUTHOR_THANK_YOU.md, claims.json, and EVIDENCE_MANIFEST.json.
+  AUTHOR_THANK_YOU.md, claims.json, reproduction_verdicts.json,
+  AUTONOMOUS_STATE.json, and EVIDENCE_MANIFEST.json.
 - Historical ORX branches are preserved under descriptive audit/release names after cleanup.
 - Claim 5 is not labeled verified without generated 90-trial raw evidence.
 - Reachable commit attribution is normalized to MachineLearning-Nerd.
@@ -46,6 +47,9 @@
 - The dossier checkpoint directly verified Claims 1–4 with exact or finite
   checks; it did not claim a full QVBS run, judge-score change, or author
   endorsement.
+- Overall verdict: VERIFIED_CLAIMS_1_TO_4_PENDING_CLAIM_5.
+- publication_allowed=true applies only to this scoped audit dossier;
+  score_claim=false and official_author_endorsement=false.
 - verify_final.py checks the final remote branch inventory, canonical
   attribution, source hash, claim ledger, evidence boundary, and fresh-clone
   topology.

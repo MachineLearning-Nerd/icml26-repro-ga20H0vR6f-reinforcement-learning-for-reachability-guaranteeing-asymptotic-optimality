@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 EXPECTED_REPOSITORY = "MachineLearning-Nerd/icml26-rl-reachability-asymptotic-optimality"
 CANONICAL_NAME = "MachineLearning-Nerd"
-CANONICAL_EMAIL = "37579156+MachineLearning-Nerd@users.noreply.github.com"
+CANONICAL_EMAIL = "MachineLearning-Nerd@users.noreply.github.com"
 EXPECTED_SOURCE_SHA = (
     "59583e49aea8bf3b4d5104485d22fc62448c7d89ebdef2e4081bf9d4638bb5e2"
 )
@@ -31,6 +31,7 @@ EXPECTED_CLAIMS = {
     "C4": "VERIFIED",
     "C5": "PENDING",
 }
+EXPECTED_OVERALL_VERDICT = "VERIFIED_CLAIMS_1_TO_4_PENDING_CLAIM_5"
 REQUIRED_FILES = {
     "README.md",
     "STATUS.md",
@@ -42,6 +43,7 @@ REQUIRED_FILES = {
     "AUTHOR_THANK_YOU.md",
     "CITATION.cff",
     "claims.json",
+    "reproduction_verdicts.json",
     "EVIDENCE_MANIFEST.json",
     "verify_final.py",
     "AUTONOMOUS_STATE.json",
@@ -175,7 +177,17 @@ def verify_manifest() -> None:
         fail("manifest repository marker is wrong")
     if manifest.get("claim_statuses") != EXPECTED_CLAIMS:
         fail("manifest claim statuses are wrong")
-    expected_audit_files = REQUIRED_FILES - {"AUTONOMOUS_STATE.json"}
+    if manifest.get("overall_verdict") != EXPECTED_OVERALL_VERDICT:
+        fail("manifest overall verdict is wrong")
+    if manifest.get("publication_allowed") is not True:
+        fail("manifest publication boundary is wrong")
+    if manifest.get("publication_boundary") != "SCOPED_AUDIT_ONLY":
+        fail("manifest publication scope is wrong")
+    if manifest.get("score_claim") is not False:
+        fail("manifest score boundary is wrong")
+    if manifest.get("official_author_endorsement") is not False:
+        fail("manifest endorsement boundary is wrong")
+    expected_audit_files = REQUIRED_FILES
     if set(manifest.get("required_audit_files", [])) != expected_audit_files:
         fail("manifest audit-file list is wrong")
     if set(manifest.get("branches", {}).get("expected_final", [])) != EXPECTED_BRANCHES:
@@ -217,6 +229,7 @@ def verify_evidence() -> None:
 
 def verify_ledgers_and_state() -> None:
     claims = read_json("claims.json")
+    verdicts = read_json("reproduction_verdicts.json")
     state = read_json("AUTONOMOUS_STATE.json")
     if {row.get("id"): row.get("status") for row in claims["claims"]} != EXPECTED_CLAIMS:
         fail("claims.json statuses are wrong")
@@ -224,6 +237,32 @@ def verify_ledgers_and_state() -> None:
         fail("claims.json repository marker is wrong")
     if claims.get("paper", {}).get("source_html_sha256") != EXPECTED_SOURCE_SHA:
         fail("claims.json source hash is wrong")
+    if claims.get("overall_verdict") != EXPECTED_OVERALL_VERDICT:
+        fail("claims.json overall verdict is wrong")
+    if claims.get("publication_allowed") is not True:
+        fail("claims.json publication boundary is wrong")
+    if claims.get("publication_boundary") != "SCOPED_AUDIT_ONLY":
+        fail("claims.json publication scope is wrong")
+    if claims.get("score_claim") is not False:
+        fail("claims.json score boundary is wrong")
+    if claims.get("official_author_endorsement") is not False:
+        fail("claims.json endorsement boundary is wrong")
+    if verdicts.get("repository") != EXPECTED_REPOSITORY:
+        fail("reproduction verdict repository marker is wrong")
+    if verdicts.get("overall_verdict") != EXPECTED_OVERALL_VERDICT:
+        fail("reproduction verdict overall status is wrong")
+    if verdicts.get("publication_allowed") is not True:
+        fail("reproduction verdict publication boundary is wrong")
+    if verdicts.get("publication_boundary") != "SCOPED_AUDIT_ONLY":
+        fail("reproduction verdict publication scope is wrong")
+    if verdicts.get("score_claim") is not False:
+        fail("reproduction verdict score boundary is wrong")
+    if verdicts.get("official_author_endorsement") is not False:
+        fail("reproduction verdict endorsement boundary is wrong")
+    if {
+        row.get("id"): row.get("status") for row in verdicts["claims"]
+    } != EXPECTED_CLAIMS:
+        fail("reproduction verdict statuses are wrong")
     if state.get("target_github_repository") != (
         "https://github.com/" + EXPECTED_REPOSITORY
     ):
@@ -234,6 +273,20 @@ def verify_ledgers_and_state() -> None:
         fail("state canonical identity is wrong")
     if state.get("canonical_identity", {}).get("email") != CANONICAL_EMAIL:
         fail("state canonical email is wrong")
+    if state.get("overall_verdict") != EXPECTED_OVERALL_VERDICT:
+        fail("state overall verdict is wrong")
+    if state.get("publication_allowed") is not True:
+        fail("state publication boundary is wrong")
+    if state.get("publication_boundary") != "SCOPED_AUDIT_ONLY":
+        fail("state publication scope is wrong")
+    if state.get("score_claim") is not False:
+        fail("state score boundary is wrong")
+    if state.get("official_author_endorsement") is not False:
+        fail("state endorsement boundary is wrong")
+    if state.get("branch_count") != len(EXPECTED_BRANCHES):
+        fail("state branch count is wrong")
+    if state.get("canonical_identity", {}).get("verified_reachable_commits") != 11:
+        fail("state reachable commit checkpoint is wrong")
     if state.get("paper_html_sha256") != EXPECTED_SOURCE_SHA:
         fail("state source hash is wrong")
     if state.get("historical_branch_count") != 5:
@@ -243,6 +296,7 @@ def verify_ledgers_and_state() -> None:
     if state.get("phase") not in {
         "dossier_ready_for_publication",
         "dossier_published",
+        "published_scoped_audit",
     }:
         fail("state phase is not a published-dossier phase")
 
@@ -259,6 +313,11 @@ def verify_documentation() -> None:
         "ENVIRONMENT.md",
         "CITATION.cff",
         "AUTHOR_THANK_YOU.md",
+        "reproduction_verdicts.json",
+        "AUTONOMOUS_STATE.json",
+        "publication_allowed",
+        "score_claim",
+        "official_author_endorsement",
         "VERIFIED",
         "PENDING",
         "verify_final.py",

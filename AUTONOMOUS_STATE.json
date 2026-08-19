@@ -2,7 +2,7 @@
   "schema_version": 2,
   "paper": "arXiv:2605.24740",
   "openreview_id": "ga20H0vR6f",
-  "phase": "dossier_published",
+  "phase": "published_scoped_audit",
   "next_action": "update_collection_tracker_and_continue_with_next_repository",
   "completed_milestones": [
     "pinned_arxiv_html_source_and_hash",
@@ -55,10 +55,16 @@
   "evidence_boundary": "targeted_claims_1_to_4_checkpoint; no_committed_generated_raw_json; claim_5_pending",
   "canonical_identity": {
     "name": "MachineLearning-Nerd",
-    "email": "37579156+MachineLearning-Nerd@users.noreply.github.com"
+    "email": "MachineLearning-Nerd@users.noreply.github.com",
+    "verified_reachable_commits": 11
   },
   "published_dossier_commit": "34fe662cee369635c6748cbb4b74de6befb55d4e",
   "publication_allowed": true,
-  "last_known_git_commit": "34fe662cee369635c6748cbb4b74de6befb55d4e",
-  "last_checkpoint": "2026-08-17"
+  "overall_verdict": "VERIFIED_CLAIMS_1_TO_4_PENDING_CLAIM_5",
+  "publication_boundary": "SCOPED_AUDIT_ONLY",
+  "score_claim": false,
+  "official_author_endorsement": false,
+  "branch_count": 6,
+  "last_known_git_commit": "2f199c6dc28b99f7e5b5f821f8906d6008659c9f",
+  "last_checkpoint": "2026-08-19T15:20:00+05:30"
 }
